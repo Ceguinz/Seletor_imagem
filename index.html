@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vinícius Silva</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
+
+        .image {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .empty {
+            border: 2px dashed gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="empty" onclick="clearSpace(1)"></div>
+        <div class="empty" onclick="clearSpace(2)"></div>
+        <div class="empty" onclick="clearSpace(3)"></div>
+    </div>
+    <div class="images">
+        <img class="image" src="image1.jpg" onclick="copyImage(this)">
+        <img class="image" src="image2.jpg" onclick="copyImage(this)">
+        <img class="image" src="image3.jpg" onclick="copyImage(this)">
+        <img class="image" src="image4.jpg" onclick="copyImage(this)">
+        <img class="image" src="image5.jpg" onclick="copyImage(this)">
+        <img class="image" src="image6.jpg" onclick="copyImage(this)">
+        <img class="image" src="image7.jpg" onclick="copyImage(this)">
+        <img class="image" src="image8.jpg" onclick="copyImage(this)">
+        <img class="image" src="image9.jpg" onclick="copyImage(this)">
+        <img class="image" src="image10.jpg" onclick="copyImage(this)">
+    </div>
+    <script>
+        function copyImage(image) {
+            var emptySpaces = document.getElementsByClassName("empty");
+            for (var i = 0; i < emptySpaces.length; i++) {
+                if (emptySpaces[i].innerHTML === "") {
+                    emptySpaces[i].innerHTML = image.outerHTML;
+                    break;
+                }
+            }
+        }
+
+        function clearSpace(spaceIndex) {
+            var emptySpaces = document.getElementsByClassName("empty");
+            emptySpaces[spaceIndex - 1].innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
